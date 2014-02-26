@@ -1,4 +1,3 @@
-
 # Run Tomcat as this user ID. Not setting this or leaving it blank will use the
 # default of tomcat7.
 TOMCAT7_USER=tomcat7
@@ -19,7 +18,7 @@ TOMCAT7_GROUP=tomcat7
 # response time). If you use that option and you run Tomcat on a machine with
 # exactly one CPU chip that contains one or two cores, you should also add
 # the "-XX:+CMSIncrementalMode" option.
-JAVA_OPTS="-Djava.awt.headless=true -server -XX:-DoEscapeAnalysis -XX:MaxPermSize=512M -Xms2048M -Xmx2048M -Xss64M -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC"
+JAVA_OPTS="-Djava.awt.headless=true -server -XX:-DoEscapeAnalysis -XX:MaxPermSize=256m -Xms256m -Xmx1524m -Xss64M -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC"
 
 # To enable remote debugging uncomment the following line.
 # You will then be able to use a java debugger on port 8000.
