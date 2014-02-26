@@ -26,7 +26,7 @@ ADD jail.local /etc/fail2ban/jail.local
 
 #install shell-in-a-box
 RUN mkdir -p /tmp/cloudezz/shellinabox
-RUN -P /tmp/cloudezz/shellinabox wget http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_amd64.deb
+RUN wget -P /tmp/cloudezz/shellinabox http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_amd64.deb
 RUN chmod +x /tmp/cloudezz/shellinabox/shellinabox_2.14-1_amd64.deb
 RUN dpkg -i shellinabox_2.14-1_amd64.deb
 RUN sudo service shellinabox stop
