@@ -6,8 +6,9 @@ USR=root
 #ROOT_SSH_PASSWD=`tr -dc A-Za-z0-9_ < /dev/urandom | head -c15`
 
 # This will actually set the password:
-if [ -z "$ROOT_SSH_PASSWD" ]; then
-echo "$USR:$PASS" | chpasswd
+if [ $ROOT_SSH_PASSWD ]; then
+echo "Setting new ssh password for user $USR"
+echo "$USR:$ROOT_SSH_PASSWD" | chpasswd
 fi 
 
 
