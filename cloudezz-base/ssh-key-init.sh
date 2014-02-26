@@ -8,8 +8,8 @@
 if [ $ROOT_SSH_PASSWD ]; then
 echo "Creating new user cloudezz"
 echo "Setting ssh password for user cloudezz"
-sudo userdel cloudezz >/dev/null 2>/dev
-sudo su -c "useradd cloudezz -s /bin/bash -m -g sudo -G sudo" >/dev/null 2>/dev
+sudo userdel cloudezz >/dev/null 2>/dev/null
+sudo su -c "useradd cloudezz -s /bin/bash -m -g sudo -G sudo" >/dev/null 2>/dev/null
 echo "cloudezz:$ROOT_SSH_PASSWD" | chpasswd
 echo "Setting ssh password for user root"
 echo "root:$ROOT_SSH_PASSWD" | chpasswd
