@@ -1,5 +1,16 @@
 #!/bin/sh
 
+# restart Fail2Ban service to avoid dos attack thru ssh
+sudo service fail2ban restart
+
+# start Shell in a box service only when the webshell env is set to true
+if [ ${WebShell} ] && [ "${WebShell}" == "true" ]
+then
+sudo service shellinabox reload
+sudo service shellinabox restart
+fi
+
+
 # print the private key on console so that the user can connect thru ssh
 /opt/ssh-key-init.sh
 

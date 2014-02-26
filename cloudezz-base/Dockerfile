@@ -19,6 +19,22 @@ RUN mkdir /var/run/sshd
 # NOTE: expose ssh to connect 
 EXPOSE 22
 
+#install fail2ban package to avoid dos attach thru ssh 
+RUN apt-get install -y fail2ban
+
+ADD jail.local /etc/fail2ban/jail.local
+
+#install shell-in-a-box
+RUN RUN mkdir -p /tmp/cloudezz/shellinabox
+RUN -P /tmp/cloudezz/shellinabox wget http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_amd64.deb
+RUN chmod +x /tmp/cloudezz/shellinabox/shellinabox_2.14-1_amd64.deb
+RUN dpkg -i shellinabox_2.14-1_amd64.deb
+RUN sudo service shellinabox stop
+ADD shellinabox /etc/default/shellinabox
+
+# 'shell in a box' web access port 
+EXPOSE 4022
+
 # NOTE: Create base folders
 RUN mkdir -p /cloudezz
 RUN mkdir -p /cloudezz/app
