@@ -1,4 +1,4 @@
-Cloudezz Java Image
+Cloudezz MySQL Image
 ===================
 
-Java 7 image for running java related applications
+MYSQL 5.5 image 
