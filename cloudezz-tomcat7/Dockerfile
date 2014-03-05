@@ -13,7 +13,8 @@ EXPOSE 8080
 ADD tomcat.conf /etc/supervisor/conf.d/
 ADD tomcat7.settings /tmp/tomcat7.settings
 ADD server.xml /tmp/server.xml
-ADD logging.properties /tmp/logging.properties
+ADD deploy_run.sh /opt/deploy_run.sh
+RUN chmod +x /opt/deploy_run.sh
 
 RUN cat /tmp/tomcat7.settings > /etc/default/tomcat7
 RUN cat /tmp/server.xml > /var/lib/tomcat7/conf/server.xml
