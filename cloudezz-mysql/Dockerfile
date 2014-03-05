@@ -4,8 +4,8 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 RUN apt-get update -qq && apt-get install -y mysql-server-5.5
 
-ADD my.cnf /etc/mysql/conf.d/mysql.cnf
-RUN chmod 664 /etc/mysql/conf.d/mysql.cnf
+ADD my.cnf /etc/mysql/conf.d/my.cnf
+RUN chmod 664 /etc/mysql/conf.d/my.cnf
 ADD start_mysql.sh /opt/start_mysql.sh
 RUN chmod +x /opt/start_mysql.sh
 
