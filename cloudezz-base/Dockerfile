@@ -70,7 +70,6 @@ RUN ln -s /opt/ant/bin/ant /usr/bin/ant
 ENV ANT_HOME /opt/ant
 
 
-
 # install supervisor (which has no package on 12.04) to manage our processes
 # the supervisor config file is more likely to change and is therefore added as a later step
 RUN apt-get -y install python-setuptools
@@ -93,8 +92,6 @@ RUN chmod +x /opt/ssh-key-init.sh
 
 ADD start.sh /opt/start.sh
 RUN chmod +x /opt/start.sh
-
-USER cloudezz
 
 CMD cd /opt && ./start.sh
 
