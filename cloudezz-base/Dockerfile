@@ -4,6 +4,8 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 #create cloudezz user	
 RUN useradd cloudezz -s /bin/bash -m -g sudo -G sudo >/dev/null 2>/dev/null	
+
+USER cloudezz
 	
 # make sure the package repository is up to date and update ubuntu
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
