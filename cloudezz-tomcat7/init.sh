@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# start Shell in a box service only when the webshell env is set to true
+
 if [ $RUN_BUILD_PACK == "true" ]
 then
 rm -r /opt/build-pack >/dev/null 2>/dev/null
