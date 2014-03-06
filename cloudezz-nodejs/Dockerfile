@@ -17,8 +17,8 @@ RUN npm -g update npm
 RUN npm install -g grunt-cli
 RUN npm install -g forever
 
-EXPOSE 3000
-
 ADD init.sh /opt/init.sh
+
+EXPOSE 3000
 
 CMD cd /opt && ./start.sh
