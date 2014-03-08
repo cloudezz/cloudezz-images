@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-chown -R cloudezz /var/lib/mysql
+chown -R mysql:mysql /var/lib/mysql
 mysql_install_db --user cloudezz > /dev/null
 
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-""}
