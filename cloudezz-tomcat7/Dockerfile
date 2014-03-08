@@ -8,6 +8,9 @@ RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/default/tomcat7
 
 RUN sed -i "s|-Xmx128m|-Xmx2024m|g" /etc/default/tomcat7
 
+# all the data in these folders will be avilable after restart of container , it will be stored in host docker m/c
+VOLUME  ["/var/lib/tomcat7", "/var/log/tomcat7"]
+
 EXPOSE 8080
 
 ADD tomcat.conf /etc/supervisor/conf.d/
