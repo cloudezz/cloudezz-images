@@ -19,6 +19,8 @@ RUN npm install -g forever
 
 ADD init.sh /opt/init.sh
 
+VOLUME  ["/cloudezz/app", "/cloudezz/data"]
+
 EXPOSE 3000
 
 CMD cd /opt && ./start.sh
