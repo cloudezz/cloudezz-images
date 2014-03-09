@@ -29,6 +29,10 @@ ADD rabbitmq.conf /etc/supervisor/conf.d/
 
 ADD rabbitmq_setup.sh /opt/rabbitmq_setup.sh
 RUN chmod +x /opt/rabbitmq_setup.sh
+RUN cd /opt && ./rabbitmq_setup.sh
+
+ADD rabbitmq_start.sh /opt/rabbitmq_start.sh
+RUN chmod +x /opt/rabbitmq_start.sh
 
 CMD cd /opt && ./start.sh
 
