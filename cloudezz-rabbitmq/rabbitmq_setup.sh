@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R rabbitmq:rabbitmq /var/lib/rabbitmq
+
 echo "Enabling rabbitmq_management ..."
 /usr/sbin/rabbitmq-plugins enable rabbitmq_management >/dev/null
 
