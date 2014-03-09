@@ -13,14 +13,10 @@ EXPOSE 6379
 
 VOLUME ["/var/lib/redis"]
 
-ADD redis_start.sh /opt/redis_start.sh
-RUN chmod +x /opt/redis_start.sh
+ADD redis_conf_setup.sh /opt/redis_conf_setup.sh
+RUN chmod +x /opt/redis_conf_setup.sh
 
-#remove the servicebase image start.sh and add the one with redis startup
-RUN rm /opt/start.sh
-ADD start.sh /opt/start.sh
-
-CMD cd /opt && ./start.sh
+CMD cd /opt && ./redis_conf_setup.sh && ./start.sh
 
 
 
