@@ -6,6 +6,8 @@ echo "Enabling rabbitmq_management ..."
 echo "Starting rabbitmq server ..."
 service rabbitmq-server start >/dev/null
 
+sleep 3
+
 RABBITMQ_USER=${RABBITMQ_USER:-"admin"}
 RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-"d1ff1cult@123"}
 
