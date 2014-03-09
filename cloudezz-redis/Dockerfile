@@ -13,6 +13,8 @@ EXPOSE 6379
 
 VOLUME ["/var/lib/redis"]
 
+ADD redis.conf /etc/supervisor/conf.d/
+
 ADD redis_conf_setup.sh /opt/redis_conf_setup.sh
 RUN chmod +x /opt/redis_conf_setup.sh
 
