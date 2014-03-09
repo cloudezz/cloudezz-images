@@ -24,6 +24,9 @@ EXPOSE 22
 #install fail2ban package to avoid dos attach thru ssh 
 RUN apt-get install -y fail2ban
 
+# joe editor alternate to vi
+RUN apt-get install -y joe
+
 ADD jail.local /etc/fail2ban/jail.local
 
 #install shell-in-a-box
