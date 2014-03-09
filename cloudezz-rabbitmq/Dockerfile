@@ -2,6 +2,8 @@ FROM cloudezz/servicebase
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
+USER root
+
 # Make sure that Upstart won't try to start RabbitMQ after apt-get installs it
 # https://github.com/dotcloud/docker/issues/446
 ADD policy-rc.d /usr/sbin/policy-rc.d
