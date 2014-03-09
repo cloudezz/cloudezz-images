@@ -2,11 +2,12 @@ FROM cloudezz/servicebase
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-RUN apt-get install -y python-software-properties sudo
-RUN apt-add-repository -y ppa:chris-lea/redis-server
+RUN echo deb http://archive.ubuntu.com/ubuntu precise main universe multiverse > /etc/apt/sources.list
 RUN apt-get update -qq
-RUN apt-get install -y redis-server=2:2.8.3-1chl1~precise1
-
+RUN apt-get install -y python-software-properties
+RUN add-apt-repository -y ppa:chris-lea/redis-server
+RUN apt-get update -qq
+RUN apt-get install -y redis-server
 
 EXPOSE 6379
 
