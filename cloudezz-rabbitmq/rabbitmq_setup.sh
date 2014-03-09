@@ -17,10 +17,6 @@ echo "Removing 'guest' user and adding '$RABBITMQ_USER' user to rabbitmq with pa
 /usr/sbin/rabbitmqctl set_permissions -p / $RABBITMQ_USER ".*" ".*" ".*" >/dev/null
 /usr/sbin/rabbitmqctl delete_user guest >/dev/null
 
-# Stop rabbitmq server 
-echo "Stopping rabbitmq server ..."
+# Stop rabbitmq server , starting will be done by supervisord
+echo "Stopping and starting rabbitmq server ..."
 service rabbitmq-server stop >/dev/null
-
-# Starting rabbitmq server after adding admin user 
-echo "Restarting rabbitmq server after adding $RABBITMQ_USER user..."
-service rabbitmq-server start
