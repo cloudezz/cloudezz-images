@@ -21,4 +21,4 @@ service rabbitmq-server stop >/dev/null
 
 # Starting rabbitmq server after adding admin user 
 echo "Restarting rabbitmq server after adding $RABBITMQ_USER user..."
-/usr/sbin/rabbitmq-server >/dev/null
+service rabbitmq-server start
