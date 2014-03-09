@@ -11,4 +11,3 @@ else
 echo "Starting redis server..."
 exec  /usr/bin/redis-server >/dev/null
 fi
-

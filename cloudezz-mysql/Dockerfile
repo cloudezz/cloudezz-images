@@ -6,6 +6,12 @@ RUN apt-get update -qq && apt-get install -y mysql-server-5.5
 
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 RUN chmod 664 /etc/mysql/conf.d/my.cnf
+
+#setup mysql before starting like setting password etc 
+ADD setup_mysql.sh /opt/setup_mysql.sh
+RUN chmod +x /opt/setup_mysql.sh
+RUN cd /opt && ./setup_mysql.sh
+
 ADD start_mysql.sh /opt/start_mysql.sh
 RUN chmod +x /opt/start_mysql.sh
 
