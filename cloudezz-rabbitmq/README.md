@@ -3,6 +3,11 @@
 
     sudo docker pull cloudezz/rabbitmq
     sudo docker run -p :5672 -p :15672 cloudezz/rabbitmq
+	
+	or
+	
+	sudo docker run -e RABBITMQ_USER=admin RABBITMQ_PASSWORD=adminpassword -p :5672 -p :15672 cloudezz/rabbitmq
+	
     
 ### To persist with vol mapping:
 

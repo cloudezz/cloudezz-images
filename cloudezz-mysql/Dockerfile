@@ -11,7 +11,6 @@ RUN chmod +x /opt/start_mysql.sh
 
 ADD mysql.conf /etc/supervisor/conf.d/
 
-
 VOLUME ["/var/lib/mysql"]
 
 EXPOSE 3306
