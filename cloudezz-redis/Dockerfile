@@ -16,11 +16,7 @@ VOLUME ["/var/lib/redis"]
 ADD redis_start.sh /opt/redis_start.sh
 RUN chmod +x /opt/redis_start.sh
 
-#remove the servicebase image start.sh and add the one with redis startup
-RUN rm /opt/start.sh
-ADD start.sh /opt/start.sh
-
-CMD cd /opt && ./start.sh
+CMD cd /opt && ./redis_start.sh && ./start.sh
 
 
 
