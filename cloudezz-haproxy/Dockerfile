@@ -13,13 +13,12 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y python-software-properties
 RUN add-apt-repository ppa:vbernat/haproxy-1.5
-RUN apt-get clean
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get dist-upgrade -y
 
 
-RUN apt-get install -y haproxy -t experimental
+RUN apt-get install -y haproxy 
 
 # enable HAProxy to be started by the init script.
 RUN echo "ENABLED=1" > /etc/default/haproxy
