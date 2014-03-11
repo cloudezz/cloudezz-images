@@ -2,9 +2,13 @@ FROM cloudezz/servicebase
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
+# since HAProxy with ssl termincation is not available in 1.4 
+# we need to add experimental deb pkg list to install 1.5 haproxy 
+
 ENV DEBIAN_FRONTEND noninteractive
+RUN echo deb http://ftp.debian.org/debian experimental main > /etc/apt/sources.list
 RUN apt-get update -qq
-RUN apt-get install -y haproxy
+RUN apt-get install -y haproxy -t experimental
 
 # enable HAProxy to be started by the init script.
 RUN echo "ENABLED=1" > /etc/default/haproxy
