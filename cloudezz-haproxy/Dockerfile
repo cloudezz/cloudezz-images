@@ -6,8 +6,8 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 # we need to add experimental deb pkg list to install 1.5 haproxy 
 
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN echo deb http://ftp.debian.org/debian experimental main > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN echo deb http://ftp.debian.org/debian experimental main >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get upgrade -y
 
