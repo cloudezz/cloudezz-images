@@ -7,7 +7,7 @@ RUN apt-get update -qq
 RUN apt-get install -y haproxy
 
 # enable HAProxy to be started by the init script.
-RUN echo"ENABLED=1" > /etc/default/haproxy
+RUN echo "ENABLED=1" > /etc/default/haproxy
 
 RUN rm /etc/haproxy/haproxy.cfg
 ADD haproxy.cfg /etc/haproxy/
