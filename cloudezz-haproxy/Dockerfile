@@ -13,7 +13,8 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y python-software-properties
 RUN add-apt-repository ppa:vbernat/haproxy-1.5
-RUN apt-get update -qq
+RUN apt-get update
+sudo apt-get dist-upgrade -y
 
 RUN apt-get install -y haproxy -t experimental
 
