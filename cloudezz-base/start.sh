@@ -15,7 +15,7 @@ fi
 # start scout_realtime service only when the SERVER_METRICS env is set to true
 if [ $SERVER_METRICS ]
 then
-echo "Starting scout real time server and process metrics service"
+echo "Starting scout realtime server and process metrics web app"
 scout_realtime -p 4055 >/dev/null
 fi
 
