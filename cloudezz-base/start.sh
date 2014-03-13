@@ -12,6 +12,12 @@ echo "Starting shellinabox service"
 service shellinabox reload >/dev/null
 fi
 
+# start scout_realtime service only when the SERVER_METRICS env is set to true
+if [ $SERVER_METRICS ]
+then
+echo "Starting scout real time server and process metrics service"
+scout_realtime -p 4055 >/dev/null
+fi
 
 
 # print the private key on console so that the user can connect thru ssh
