@@ -12,16 +12,6 @@ echo "Starting shellinabox service"
 service shellinabox reload >/dev/null
 fi
 
-# start scout_realtime service only when the SERVER_METRICS env is set to true
-if [ $SERVER_METRICS ]
-then
-echo "Starting scout realtime server and process metrics web app"
-#fix for a bug in docker as it does not allow df command error -  df: cannot read table of mounted file systems
-grep -v rootfs /proc/mounts > /etc/mtab
-scout_realtime -p 4055 >/dev/null
-fi
-
-
 # print the private key on console so that the user can connect thru ssh
 /opt/ssh-key-init.sh
 

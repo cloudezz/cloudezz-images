@@ -37,18 +37,6 @@ ADD shellinabox /etc/default/shellinabox
 # 'shell in a box' web access port 
 EXPOSE 4022
 
-
-#install scout_realtime server which needs ruby 1.9.3+
-RUN apt-get install -y python-software-properties
-RUN apt-add-repository ppa:brightbox/ruby-ng -y
-RUN apt-get update
-RUN apt-get -y install ruby2.1
-RUN gem install scout_realtime
-
-# 'scout_realtime' web access port 
-EXPOSE 4055
-
-
 # NOTE: Create base folders
 RUN mkdir -p /cloudezz
 RUN mkdir -p /cloudezz/app
