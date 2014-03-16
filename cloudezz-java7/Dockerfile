@@ -14,7 +14,7 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
 # and install java 7 oracle jdk
 RUN apt-get -y install oracle-java7-installer && apt-get clean
 RUN update-alternatives --display java
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
+RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
 
 
 # setting up ant 
