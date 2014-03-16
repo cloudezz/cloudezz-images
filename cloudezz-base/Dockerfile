@@ -37,12 +37,6 @@ ADD shellinabox /etc/default/shellinabox
 # 'shell in a box' web access port 
 EXPOSE 4022
 
-# update vim to a newer version 
-RUN apt-get install -y python-software-properties
-RUN apt-add-repository ppa:blueyed/ppa
-RUN apt-get update
-RUN apt-get install -y vim
-
 # Install some packages we need
 RUN apt-get install -y rinetd
 RUN apt-get install -y joe
