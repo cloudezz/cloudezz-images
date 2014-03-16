@@ -45,7 +45,8 @@ RUN apt-get install -y git-core
 
 # install supervisor (which has no package on 12.04) to manage our processes
 # the supervisor config file is more likely to change and is therefore added as a later step
-RUN apt-get install -y supervisor
+RUN apt-get install -y supervisor 
+RUN apt-get clean
 RUN mkdir -p /var/log/supervisor
 # create directory for child images to store configuration in
 RUN  mkdir -p /etc/supervisor/conf.d
@@ -64,6 +65,9 @@ RUN chmod +x /opt/ssh-key-init.sh
 
 ADD start.sh /opt/cloudezz-config/start.sh
 RUN chmod +x /opt/cloudezz-config/start.sh
+
+
+
 
 CMD cd /opt/cloudezz-config && ./start.sh
 
