@@ -15,13 +15,21 @@ RUN echo "JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51" >> /etc/environment
 # setting up ant 
 RUN wget http://www.us.apache.org/dist/ant/binaries/apache-ant-1.9.3-bin.tar.gz
 RUN tar xvfvz apache-ant-1.9.3-bin.tar.gz -C /opt
+RUN rm -f apache-ant-1.9.3-bin.tar.gz
 RUN ln -s /opt/apache-ant-1.9.3 /opt/ant
 RUN sh -c 'echo ANT_HOME=/opt/ant >> /etc/environment'
 RUN ln -s /opt/ant/bin/ant /usr/bin/ant 
 ENV ANT_HOME /opt/ant
 
 # setting up maven 
-RUN apt-get -y install maven
+RUN wget http://www.motorlogy.com/apache/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
+RUN tar xvfvz apache-maven-3.2.1-bin.tar.gz -C /opt
+RUN rm -f apache-maven-3.2.1-bin.tar.gz
+RUN ln -s /opt/apache-maven-3.2.1 /opt/maven
+RUN sh -c 'echo ANT_HOME=/opt/maven >> /etc/environment'
+RUN ln -s /opt/maven/bin/ant /usr/bin/ant 
+ENV M2_HOME /opt/maven
+
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
