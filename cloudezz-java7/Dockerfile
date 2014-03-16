@@ -2,8 +2,12 @@ FROM cloudezz/base
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-# make sure the package repository is up to date
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+# make sure the package repository is up to date and update ubuntu
+RUN sudo echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN sudo sed 's/main$/main universe/' -i /etc/apt/sources.list
+
+RUN sudo apt-get update
+RUN sudo apt-get -y upgrade
 
 RUN apt-get update && apt-get -y install python-software-properties
 RUN add-apt-repository ppa:webupd8team/java
