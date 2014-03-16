@@ -2,6 +2,7 @@ FROM cloudezz/nodejs
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
+RUN apt-get install -y unzip
 
 # Install Ghost
 RUN mkdir -p /cloudezz/app
