@@ -10,15 +10,7 @@ RUN cd /usr/lib/jvm && tar zxvf jdk-7u51-linux-x64.tar.gz
 RUN cd /usr/lib/jvm && rm jdk-7u51-linux-x64.tar.gz
 RUN ln -s -b /usr/lib/jvm/jdk1.7.0_51/jre/bin/java /etc/alternatives/java
 RUN ln -s -b /usr/lib/jvm/jdk1.7.0_51/jre/bin/java /usr/bin/java
-
-# automatically accept oracle license
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN rm -r -f /var/cache/oracle-java7-installer/
-RUN wget -P /var/cache/oracle-java7-installer/ http://www.reucon.com/cdn/java/jdk-7u51-linux-x64.tar.gz
-# and install java 7 oracle jdk
-RUN apt-get -y install oracle-java7-installer && apt-get clean
-RUN update-alternatives --display java
-RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
+RUN echo "JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51" >> /etc/environment
 
 # setting up ant 
 RUN wget http://www.us.apache.org/dist/ant/binaries/apache-ant-1.9.3-bin.tar.gz
