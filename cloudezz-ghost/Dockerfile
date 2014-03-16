@@ -3,13 +3,12 @@ FROM cloudezz/nodejs
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 
+# Install Ghost
 RUN mkdir -p /cloudezz/app
 
-RUN wget -P /cloudezz/app http://ghost.org/archives/ghost-0.4.1.zip
-
-RUN cd /cloudezz/app  && unzip ghost-0.4.1.zip -d /cloudezz/app
-RUN cd /cloudezz/app  && rm ghost-0.4.1.zip
-RUN cd /cloudezz/app  && npm install --production
+RUN cd /cloudezz/app && wget https://ghost.org/zip/ghost-0.4.1.zip -O ghost.zip
+RUN cd /cloudezz/app && unzip ghost.zip && rm -f ghost.zip
+RUN cd /cloudezz/app && npm install --production
 
 EXPOSE 2368
 
