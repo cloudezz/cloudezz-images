@@ -2,6 +2,13 @@ FROM ubuntu:12.04
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
+# make sure the package repository is up to date and update ubuntu
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+
+RUN apt-get update
+RUN apt-get -y upgrade
+
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get update
