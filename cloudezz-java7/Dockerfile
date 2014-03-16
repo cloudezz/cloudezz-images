@@ -27,7 +27,7 @@ RUN tar xvfvz apache-maven-3.2.1-bin.tar.gz -C /opt
 RUN rm -f apache-maven-3.2.1-bin.tar.gz
 RUN ln -s /opt/apache-maven-3.2.1 /opt/maven
 RUN sh -c 'echo ANT_HOME=/opt/maven >> /etc/environment'
-RUN ln -s /opt/maven/bin/ant /usr/bin/ant 
+RUN ln -s /opt/maven/bin/mvn /usr/bin/mvn 
 ENV M2_HOME /opt/maven
 
 
