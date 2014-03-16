@@ -21,12 +21,17 @@ rm -r /cloudezz/app
 git clone $GIT_URL /cloudezz/app >/dev/null
 fi
 
-if [ -e "/opt/init.sh" ]
+# start supervisord in daemon mode
+supervisord -c /etc/supervisor.conf
+
+
+if [ -e "/cloudezz/app/cloudezz-config/cloudezz-init.sh" ]
 then
- chmod +x /opt/init.sh
- /opt/init.sh
+ echo " Started cloudezz init script..." 
+ chmod +x /cloudezz/app/cloudezz-config/cloudezz-init.sh
+ /cloudezz/app/cloudezz-config/cloudezz-init.sh
 fi
 
 
-# start supervisord in nodaemon mode
-supervisord -n -c /etc/supervisor.conf
+
+
