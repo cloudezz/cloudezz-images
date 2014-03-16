@@ -2,19 +2,17 @@ FROM cloudezz/base
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-# Setting up java 7
-RUN rm -f /var/lib/dpkg/info/oracle-java7-installer* 
-RUN apt-get purge oracle-java7-installer* 
-RUN rm -f /etc/apt/sources.list.d/*java* 
-RUN apt-get update 
-RUN add-apt-repository ppa:webupd8team/java -y
+# make sure the package repository is up to date
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 
-RUN apt-get update
+RUN apt-get update && apt-get -y install python-software-properties
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get update && apt-get -y upgrade
+
+# automatically accept oracle license
 RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-
 # and install java 7 oracle jdk
 RUN apt-get -y install oracle-java7-installer && apt-get clean
-
 RUN update-alternatives --display java
 RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
 
@@ -29,7 +27,13 @@ ENV ANT_HOME /opt/ant
 # setting up maven 
 RUN apt-get -y install maven
 
-CMD cd /opt && ./start.sh
+# add default cloudezz init shell script  
+# The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
+RUN mkdir -p /opt/cloudezz-config
+ADD default-cloudezz-init.sh /opt/cloudezz-config/default-cloudezz-init.sh
+RUN chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
+
+CMD cd /opt/cloudezz-config && ./start.sh
 
 
 
