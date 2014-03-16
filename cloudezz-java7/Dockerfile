@@ -4,7 +4,7 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 # Setting up java 7
 RUN rm -f /var/lib/dpkg/info/oracle-java7-installer* 
-RUN apt-get purge -y oracle-java7-installer* 
+RUN apt-get purge oracle-java7-installer* 
 RUN rm -f /etc/apt/sources.list.d/*java* 
 RUN apt-get update 
 RUN add-apt-repository ppa:webupd8team/java -y
