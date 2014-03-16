@@ -7,6 +7,6 @@ config.example.js > config.js
 npm config set strict-ssl false
 npm config set registry "http://registry.npmjs.org/"
 #-------------------------------------------------------------------------------
-echo "Starting ghost:"
-forever start index.js
+echo "Starting ghost blogging service"
+forever -o ghost-out.log -e ghost-err.log index.js
 #===============================================================================
