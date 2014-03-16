@@ -27,6 +27,7 @@ RUN mkdir -p /tmp/cloudezz/shellinabox
 RUN wget -P /tmp/cloudezz/shellinabox http://archive.ubuntu.com/ubuntu/pool/universe/s/shellinabox/shellinabox_2.14-1_amd64.deb
 RUN chmod +x /tmp/cloudezz/shellinabox/shellinabox_2.14-1_amd64.deb
 RUN cd /tmp/cloudezz/shellinabox ; dpkg -i shellinabox_2.14-1_amd64.deb
+RUN rm -f /tmp/cloudezz/shellinabox/shellinabox_2.14-1_amd64.deb
 RUN service shellinabox stop
 ADD shellinabox /etc/default/shellinabox
 
