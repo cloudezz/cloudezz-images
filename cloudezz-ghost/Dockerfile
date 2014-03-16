@@ -2,16 +2,16 @@ FROM cloudezz/nodejs
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-RUN mkdir -p /cloudezz/data
+
 RUN mkdir -p /cloudezz/app
 
-ENV GHOST_VERSION 0.4.1
-ENV APP_ROOT /cloudezz/app
+RUN wget -P /cloudezz/app http://ghost.org/archives/ghost-0.4.1.zip
 
-RUN curl -sLO http://ghost.org/archives/ghost-$GHOST_VERSION.zip
-RUN mkdir -p $APP_ROOT && unzip -uo ghost-$GHOST_VERSION.zip -d $APP_ROOT
-RUN rm ghost-$GHOST_VERSION.zip
-RUN cd $APP_ROOT && npm install --production
+WORKDIR /cloudezz/app
+
+RUN unzip -uo ghost-0.4.1.zip 
+RUN rm ghost-0.4.1.zip
+RUN npm install --production
 
 EXPOSE 2368
 
