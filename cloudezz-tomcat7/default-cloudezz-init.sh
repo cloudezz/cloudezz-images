@@ -23,4 +23,4 @@ cd /opt/build-pack/cloudezz-tomcat7-build-pack-master && ant
 fi
 
 echo "Starting tomcat server on port 8080"
-CMD service tomcat7 restart && tail -f /var/lib/tomcat7/logs/catalina.out
+service tomcat7 restart && tail -f /var/lib/tomcat7/logs/catalina.out
