@@ -7,11 +7,9 @@ RUN mkdir -p /cloudezz/app
 
 RUN wget -P /cloudezz/app http://ghost.org/archives/ghost-0.4.1.zip
 
-WORKDIR /cloudezz/app
-
-RUN unzip -uo ghost-0.4.1.zip 
-RUN rm ghost-0.4.1.zip
-RUN npm install --production
+RUN cd /cloudezz/app  && unzip -uo ghost-0.4.1.zip 
+RUN cd /cloudezz/app  && rm ghost-0.4.1.zip
+RUN cd /cloudezz/app  && npm install --production
 
 EXPOSE 2368
 
