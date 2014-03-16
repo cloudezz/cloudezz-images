@@ -17,8 +17,4 @@ EXPOSE 2368
 
 RUN rm /usr/sbin/policy-rc.d
 
-RUN cat /tmp/tomcat7.settings > /etc/default/tomcat7
-RUN cat /tmp/server.xml > /var/lib/tomcat7/conf/server.xml
-RUN cat /tmp/logging.properties > /var/lib/tomcat7/logging.properties
-
 CMD cd /opt/cloudezz-config && ./start.sh
