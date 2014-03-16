@@ -38,6 +38,7 @@ ADD shellinabox /etc/default/shellinabox
 EXPOSE 4022
 
 # update vim to a newer version 
+RUN apt-get install -y python-software-properties
 RUN apt-add-repository ppa:blueyed/ppa
 RUN apt-get update
 RUN apt-get install -y vim
@@ -67,9 +68,9 @@ RUN chmod +x /opt/port_mapping.sh
 ADD ssh-key-init.sh /opt/ssh-key-init.sh
 RUN chmod +x /opt/ssh-key-init.sh
 
-ADD start.sh /opt/start.sh
-RUN chmod +x /opt/start.sh
+ADD start.sh /opt/cloudezz-config/start.sh
+RUN chmod +x /opt/cloudezz-config/start.sh
 
-CMD cd /opt && ./start.sh
+CMD cd /opt/cloudezz-config && ./start.sh
 
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # restart Fail2Ban service to avoid dos attack thru ssh
 echo "Starting fail2ban service"
 service fail2ban restart >/dev/null
@@ -30,6 +29,10 @@ then
  echo " Started cloudezz init script..." 
  chmod +x /cloudezz/app/cloudezz-config/cloudezz-init.sh
  /cloudezz/app/cloudezz-config/cloudezz-init.sh
+else
+ echo " Started default cloudezz init script..." 
+ chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
+ /opt/cloudezz-config/default-cloudezz-init.sh
 fi
 
 
