@@ -1,4 +1,4 @@
-FROM cloudezz/base
+FROM ubuntu:12.04
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
