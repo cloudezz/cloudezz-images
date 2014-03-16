@@ -6,7 +6,12 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 RUN useradd cloudezz -s /bin/bash -m -g sudo -G sudo >/dev/null 2>/dev/null	
 
 
+# make sure the package repository is up to date and update ubuntu
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+
 RUN apt-get update
+RUN apt-get -y upgrade
 	
 # add sshd service and add the sshkey 
 RUN apt-get install -y openssh-server
