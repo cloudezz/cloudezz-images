@@ -11,6 +11,7 @@ RUN cd /usr/lib/jvm && rm jdk-7u51-linux-x64.tar.gz
 RUN ln -s -b /usr/lib/jvm/jdk1.7.0_51/jre/bin/java /etc/alternatives/java
 RUN ln -s -b /usr/lib/jvm/jdk1.7.0_51/jre/bin/java /usr/bin/java
 RUN echo "JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51" >> /etc/environment
+ENV ANT_HOME /usr/lib/jvm/jdk1.7.0_51
 
 # setting up ant 
 RUN wget http://www.us.apache.org/dist/ant/binaries/apache-ant-1.9.3-bin.tar.gz
