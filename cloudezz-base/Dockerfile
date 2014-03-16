@@ -45,14 +45,14 @@ RUN apt-get install -y git-core
 
 # install supervisor (which has no package on 12.04) to manage our processes
 # the supervisor config file is more likely to change and is therefore added as a later step
-RUN apt-get -y install python-setuptools && apt-get clean
-RUN easy_install supervisor
+RUN apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 # create directory for child images to store configuration in
 RUN  mkdir -p /etc/supervisor/conf.d
 
 # add supervisor conf files that will start when supervisord starts
 ADD supervisor.conf /etc/supervisor.conf
+ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD sshd.conf /etc/supervisor/conf.d/
 ADD port_mapping.conf /etc/supervisor/conf.d/
 

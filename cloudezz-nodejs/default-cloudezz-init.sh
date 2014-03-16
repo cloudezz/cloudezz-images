@@ -12,6 +12,6 @@ fi
 
 
 # stop supervisord in daemon mode
-supervisord stop
+service supervisor stop
 # start supervisord in non daemon mode as it has to keep the machine running else it will shutdown
 supervisord -n -c /etc/supervisor.conf
