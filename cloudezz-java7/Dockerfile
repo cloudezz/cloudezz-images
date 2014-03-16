@@ -2,12 +2,8 @@ FROM cloudezz/base
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-# make sure the package repository is up to date and update ubuntu
+# make sure the package repository is up to date
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
-
-RUN apt-get update
-RUN apt-get -y upgrade
 
 RUN apt-get update && apt-get -y install python-software-properties
 RUN add-apt-repository ppa:webupd8team/java
@@ -19,7 +15,6 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
 RUN apt-get -y install oracle-java7-installer && apt-get clean
 RUN update-alternatives --display java
 RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
-
 
 # setting up ant 
 RUN wget http://www.us.apache.org/dist/ant/binaries/apache-ant-1.9.3-bin.tar.gz
