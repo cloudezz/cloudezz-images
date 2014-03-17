@@ -3,7 +3,7 @@ FROM cloudezz/java7
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 RUN apt-get -y install tomcat7
-RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/default/tomcat7
+RUN echo "JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51" >> /etc/default/tomcat7
 
 RUN sed -i "s|-Xmx128m|-Xmx2024m|g" /etc/default/tomcat7
 
