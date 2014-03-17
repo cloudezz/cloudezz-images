@@ -19,5 +19,7 @@ chmod +x -R /opt/build-pack/
 cd /opt/build-pack/cloudezz-tomcat7-build-pack-master && ant 
 fi
 
+echo "Stop tomcat if running"
+service tomcat7 stop >/dev/null 2>/dev/null
 echo "Starting tomcat server on port 8080"
-service tomcat7 restart && tail -f /opt/tomcat7/logs/catalina.out
+service tomcat7 start && tail -f /opt/tomcat7/logs/catalina.out
