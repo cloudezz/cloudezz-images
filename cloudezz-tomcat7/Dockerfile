@@ -13,9 +13,9 @@ RUN echo "CATALINA_BASE=opt/apache-tomcat-7.0.52" >> /etc/environment
 RUN echo "CATALINA_HOME=opt/apache-tomcat-7.0.52" >> /etc/environment
 RUN echo "TOMCAT_HOME=opt/apache-tomcat-7.0.52" >> /etc/environment
 ENV JAVA_HOME /usr/lib/jvm/jdk1.7.0_51
-ENV CATALINA_BASE: /opt/apache-tomcat-7.0.52
-ENV CATALINA_HOME: /opt/apache-tomcat-7.0.52
-ENV TOMCAT_HOME: /opt/apache-tomcat-7.0.52
+ENV CATALINA_BASE /opt/apache-tomcat-7.0.52
+ENV CATALINA_HOME /opt/apache-tomcat-7.0.52
+ENV TOMCAT_HOME /opt/apache-tomcat-7.0.52
 
 EXPOSE 8080
 
