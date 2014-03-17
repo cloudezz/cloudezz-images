@@ -1,0 +1,23 @@
+# Tomcat auto-start
+#
+# description: Auto-starts tomcat
+# processname: tomcat
+# pidfile: /var/run/tomcat.pid
+
+
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
+
+
+case $1 in
+start)
+sh /opt/tomcat7/bin/startup.sh
+;;
+stop)
+sh /opt/tomcat7/bin/shutdown.sh
+;;
+restart)
+sh /opt/tomcat7/bin/shutdown.sh
+sh /opt/tomcat7/bin/startup.sh
+;;
+esac
+exit 0
