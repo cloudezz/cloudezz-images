@@ -11,10 +11,12 @@ RUN wget https://ghost.org/zip/ghost-0.4.1.zip
 RUN unzip ghost-0.4.1.zip  -d /cloudezz/ghost
 RUN rm -f ghost-0.4.1.zip
 RUN cd /cloudezz/ghost && npm install --production
+ADD config.js /cloudezz/ghost
 
 EXPOSE 2368
 
 VOLUME /cloudezz/ghost
+
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
