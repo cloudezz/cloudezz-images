@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /cloudezz/app
+cd /cloudezz/ghost
 sed -e '0,/host: '"'"'127.0.0.1'"'"'/s//host: '"'"'0.0.0.0'"'"'/' \
 config.example.js > config.js
 #-------------------------------------------------------------------------------

@@ -58,9 +58,8 @@ ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD sshd.conf /etc/supervisor/conf.d/
 ADD port_mapping.conf /etc/supervisor/conf.d/
 
-# NOTE: Create base folders
-RUN mkdir -p /cloudezz/app
-RUN mkdir -p /cloudezz/data
+# NOTE: Create base folder
+RUN mkdir -p /cloudezz
 
 ADD port_mapping.sh /opt/port_mapping.sh
 RUN chmod +x /opt/port_mapping.sh

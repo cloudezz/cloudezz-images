@@ -5,14 +5,16 @@ MAINTAINER bbytes  "info@beyondbytes.co.in"
 RUN apt-get install -y unzip
 
 # Install Ghost
-RUN mkdir -p /cloudezz/app
+RUN mkdir -p /cloudezz/ghost
 
 RUN wget https://ghost.org/zip/ghost-0.4.1.zip 
-RUN unzip ghost-0.4.1.zip  -d /cloudezz/app
+RUN unzip ghost-0.4.1.zip  -d /cloudezz/ghost
 RUN rm -f ghost-0.4.1.zip
-RUN cd /cloudezz/app && npm install --production
+RUN cd /cloudezz/ghost && npm install --production
 
 EXPOSE 2368
+
+VOLUME /cloudezz/ghost
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
