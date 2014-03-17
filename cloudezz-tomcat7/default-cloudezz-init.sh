@@ -9,7 +9,7 @@ cd /opt/tomcat7/webapps/  && wget -q $WAR_URL
 fi
 
 
-if [ $RUN_BUILD_PACK == "true" ]
+if [ $RUN_BUILD_PACK ]
 then
 rm -r /opt/build-pack >/dev/null 2>/dev/null
 wget -P /opt/build-pack/ https://github.com/cloudezz/cloudezz-tomcat7-build-pack/archive/master.zip  >/dev/null 2>/dev/null
