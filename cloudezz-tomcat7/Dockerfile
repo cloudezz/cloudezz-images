@@ -14,6 +14,9 @@ ADD server.xml /tmp/server.xml
 ADD logging.properties /tmp/logging.properties
 
 
+# all the data in these folders will be available after restart of container , it will be stored in host docker m/c
+VOLUME  ["/var/lib/tomcat7", "/var/log/tomcat7"]
+
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
 RUN mkdir -p /opt/cloudezz-config
