@@ -2,6 +2,12 @@ FROM ubuntu:12.04
 
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
+# Set locale
+RUN locale-gen --no-purge en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+ENV DEBIAN_FRONTEND noninteractive
+
 #create cloudezz user	
 RUN useradd cloudezz -s /bin/bash -m -g sudo -G sudo >/dev/null 2>/dev/null	
 
@@ -21,9 +27,12 @@ RUN mkdir /root/.ssh
 RUN chmod 700 /root/.ssh
 RUN /usr/bin/ssh-keygen -q -t rsa -N "" -f /root/.ssh/id_rsa
 RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
-RUN chown -Rf root:root /root/.ssh
+# Ensure correct permissions for root/.ssh and /etc/ssh/*
 RUN chmod 600 /root/.ssh/*
 RUN chmod 600 /etc/ssh/*
+RUN chown -Rf root:root /root/.ssh
+RUN chown -Rf root:root /etc/ssh/*
+
 
 # NOTE: expose ssh to connect 
 EXPOSE 22
