@@ -19,8 +19,6 @@ echo "root:$ROOT_SSH_PASSWD" | chpasswd
 
 
 
-
-
 # print the private key on console so that the user can connect thru ssh 
 KEYGEN=/usr/bin/ssh-keygen
 KEYFILE=/root/.ssh/id_rsa
@@ -31,9 +29,9 @@ if [ ! -f $KEYFILE ]; then
   chmod 600 /root/.ssh/*
 fi
 
-#	# if the root shh password is missing then print private key
-#	if [ ! $ROOT_SSH_PASSWD  ]; then
-#	  echo "== Use this private key to log in =="
-#	  cat $KEYFILE
-#	fi
+# if the root ssh password is missing then print private key
+if [ ! $ROOT_SSH_PASSWD  ]; then
+  echo "== Use this private key to log in ==" 
+  cat $KEYFILE
+fi
 

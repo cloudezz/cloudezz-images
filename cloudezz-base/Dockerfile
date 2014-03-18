@@ -15,10 +15,14 @@ RUN apt-get -y upgrade
 # add sshd service and add the sshkey 
 RUN apt-get install -y openssh-server
 
+RUN mkdir /var/run/sshd
+
 RUN mkdir /root/.ssh
 RUN chmod 700 /root/.ssh
+RUN /usr/bin/ssh-keygen -q -t rsa -N "" -f /root/.ssh/id_rsa
+RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 RUN chown -Rf root:root /root/.ssh
-RUN mkdir /var/run/sshd
+RUN chmod 600 /root/.ssh/*
 
 # NOTE: expose ssh to connect 
 EXPOSE 22
