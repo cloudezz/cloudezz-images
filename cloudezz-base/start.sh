@@ -21,7 +21,7 @@ git clone $GIT_URL /cloudezz/app >/dev/null
 fi
 
 # start supervisord in daemon mode
-service supervisor restart
+service supervisor start
 
 
 if [ -e "/cloudezz/app/cloudezz-config/cloudezz-init.sh" ]
