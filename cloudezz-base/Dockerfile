@@ -16,6 +16,8 @@ RUN apt-get -y upgrade
 RUN apt-get install -y openssh-server
 
 RUN mkdir /root/.ssh
+RUN chmod 700 /root/.ssh
+RUN chown -Rf root:root /root/.ssh
 RUN mkdir /var/run/sshd
 
 # NOTE: expose ssh to connect 
