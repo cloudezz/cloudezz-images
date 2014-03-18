@@ -23,10 +23,12 @@ echo "root:$ROOT_SSH_PASSWD" | chpasswd
 KEYGEN=/usr/bin/ssh-keygen
 KEYFILE=/root/.ssh/id_rsa
 
-if [ ! -f $KEYFILE ]; then
+if [ -f /.new_sshkey_created ]; then
+echo "New ssh key created!"
   $KEYGEN -q -t rsa -N "" -f $KEYFILE
   cat $KEYFILE.pub >> /root/.ssh/authorized_keys
   chmod 600 /root/.ssh/*
+  touch /.new_sshkey_created
 fi
 
 # if the root ssh password is missing then print private key
