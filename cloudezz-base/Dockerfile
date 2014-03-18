@@ -23,6 +23,7 @@ RUN /usr/bin/ssh-keygen -q -t rsa -N "" -f /root/.ssh/id_rsa
 RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 RUN chown -Rf root:root /root/.ssh
 RUN chmod 600 /root/.ssh/*
+RUN chmod 600 /etc/ssh/*
 
 # NOTE: expose ssh to connect 
 EXPOSE 22
