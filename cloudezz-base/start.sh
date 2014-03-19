@@ -30,9 +30,12 @@ then
  chmod +x /cloudezz/app/cloudezz-config/cloudezz-init.sh
  /cloudezz/app/cloudezz-config/cloudezz-init.sh
 else
- echo "Started default cloudezz init script..." 
- chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
- /opt/cloudezz-config/default-cloudezz-init.sh
+	if [ -e "/opt/cloudezz-config/default-cloudezz-init.sh" ]
+	then
+		echo "Started default cloudezz init script..." 
+		chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
+		/opt/cloudezz-config/default-cloudezz-init.sh
+	fi	
 fi
 
 
