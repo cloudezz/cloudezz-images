@@ -20,7 +20,8 @@ ENV TOMCAT_HOME /opt/apache-tomcat-7.0.52
 EXPOSE 8080
 
 # all the data in these folders will be available after restart of container , it will be stored in host docker m/c
-VOLUME /opt/tomcat7
+VOLUME /opt/tomcat7/webapps
+VOLUME /opt/tomcat7/logs
 
 
 ADD setenv.sh /opt/apache-tomcat-7.0.52/bin/setenv.sh
