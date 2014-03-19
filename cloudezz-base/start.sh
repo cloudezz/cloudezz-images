@@ -11,8 +11,8 @@ echo "Starting shellinabox service"
 service shellinabox reload >/dev/null
 fi
 
-# print the private key on console so that the user can connect thru ssh
-/opt/ssh-key-init.sh
+# print the private key or ssh password on console so that the user can connect thru ssh
+/opt/cloudezz-config/ssh-key-init.sh
 
 if [ $GIT_URL ]
 then

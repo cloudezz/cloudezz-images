@@ -77,11 +77,12 @@ ADD rinetd.conf /etc/supervisor/conf.d/
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
 
-ADD rinetd.sh /opt/rinetd.sh
-RUN chmod +x /opt/rinetd.sh
+RUN mkdir -p /opt/cloudezz-config
+ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
+RUN chmod +x /opt/cloudezz-config/rinetd.sh
 
-ADD ssh-key-init.sh /opt/ssh-key-init.sh
-RUN chmod +x /opt/ssh-key-init.sh
+ADD ssh-key-init.sh /opt/cloudezz-config/ssh-key-init.sh
+RUN chmod +x /opt/cloudezz-config/ssh-key-init.sh
 
 ADD start.sh /opt/cloudezz-config/start.sh
 RUN chmod +x /opt/cloudezz-config/start.sh
