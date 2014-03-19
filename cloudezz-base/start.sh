@@ -26,11 +26,11 @@ service supervisor start
 
 if [ -e "/cloudezz/app/cloudezz-config/cloudezz-init.sh" ]
 then
- echo " Started cloudezz init script..." 
+ echo "Started cloudezz init script..." 
  chmod +x /cloudezz/app/cloudezz-config/cloudezz-init.sh
  /cloudezz/app/cloudezz-config/cloudezz-init.sh
 else
- echo " Started default cloudezz init script..." 
+ echo "Started default cloudezz init script..." 
  chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
  /opt/cloudezz-config/default-cloudezz-init.sh
 fi

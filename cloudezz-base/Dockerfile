@@ -72,13 +72,13 @@ RUN  mkdir -p /etc/supervisor/conf.d
 ADD supervisor.conf /etc/supervisor.conf
 ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD sshd.conf /etc/supervisor/conf.d/
-ADD port_mapping.conf /etc/supervisor/conf.d/
+ADD rinetd.conf /etc/supervisor/conf.d/
 
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
 
-ADD port_mapping.sh /opt/port_mapping.sh
-RUN chmod +x /opt/port_mapping.sh
+ADD rinetd.sh /opt/rinetd.sh
+RUN chmod +x /opt/rinetd.sh
 
 ADD ssh-key-init.sh /opt/ssh-key-init.sh
 RUN chmod +x /opt/ssh-key-init.sh
