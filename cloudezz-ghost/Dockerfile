@@ -20,7 +20,6 @@ VOLUME /cloudezz/ghost
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
-RUN mkdir -p /opt/cloudezz-config
 ADD default-cloudezz-init.sh /opt/cloudezz-config/default-cloudezz-init.sh
 RUN chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
 
