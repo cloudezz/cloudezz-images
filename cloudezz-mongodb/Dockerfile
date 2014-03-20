@@ -21,8 +21,8 @@ EXPOSE 28017
 
 
 # Add run scripts
-ADD set_mongodb_password.sh /opt/cloudezz-config/set_mongodb_password.sh
-RUN chmod +x /opt/cloudezz-config/set_mongodb_password.sh
+ADD set_mongo_user_password.sh /opt/cloudezz-config/set_mongo_user_password.sh
+RUN chmod +x /opt/cloudezz-config/set_mongo_user_password.sh
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
