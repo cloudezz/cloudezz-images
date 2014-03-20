@@ -29,7 +29,7 @@ RUN chmod +x /opt/cloudezz-config/set_mongo_user_password.sh
 ADD default-cloudezz-init.sh /opt/cloudezz-config/default-cloudezz-init.sh
 RUN chmod +x /opt/cloudezz-config/default-cloudezz-init.sh
 
-CMD cd /opt && ./redis_conf_setup.sh && ./start.sh
+CMD cd /opt/cloudezz-config && ./start.sh
 
 
 
