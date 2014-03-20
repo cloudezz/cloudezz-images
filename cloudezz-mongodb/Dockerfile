@@ -3,13 +3,13 @@ FROM cloudezz/base
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 # Install MongoDB.
-ENV MONGO_VERSION 2.4.8
+ENV MONGO_VERSION 2.4.9
 
-# Install MongoDB v2.4.8
+# Install MongoDB v2.4.9
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/10gen.list
 RUN apt-get -qq update
-RUN apt-get -qqy install mongodb-10gen=$MONGO_VERSION
+RUN apt-get -qqy install mongodb-10gen=2.4.9
 
 VOLUME ["/data/db"]
 
