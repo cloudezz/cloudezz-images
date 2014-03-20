@@ -15,8 +15,10 @@ ADD config.js /cloudezz/ghost/config.js
 
 EXPOSE 2368
 
-VOLUME ["/cloudezz/ghost"]
+VOLUME ["/cloudezz/ghost-override"]
 
+#set the run mode as production
+ENV NODE_ENV production
 
 # add default cloudezz init shell script  
 # The default is called only when the used defined init file is not there in /cloudezz/app/cloudezz-config/cloudezz-init.sh
