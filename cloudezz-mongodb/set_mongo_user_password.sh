@@ -11,9 +11,10 @@ fi
 sleep 3
 USER=${MONGODB_USER:"admin"}
 PASS=${MONGODB_PASSWD:-$(pwgen -s 12 1)}
-#echo "=> Creating an admin privilege user '${USER}' with '${PASS}' password in MongoDB"
-mongo admin --eval "db.addUser( { user: "$USER", pwd: "$PASS", roles: [ 'userAdminAnyDatabase', 'dbAdminAnyDatabase' ] } );"
-mongo admin --eval "db.shutdownServer();"
+echo "=> Creating an admin privilege user '${USER}' with '${PASS}' password in MongoDB"
+use admin;
+db.addUser({ user:"$USER", pwd:"$PASS", roles:["dbAdminAnyDatabase","clusterAdmin"]});
+db.shutdownServer();
 sleep 3
 
 echo "=> Done!"
