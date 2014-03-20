@@ -8,6 +8,8 @@ RUN tar xvfvz apache-tomcat-7.0.52.tar.gz -C /opt
 RUN rm -f apache-tomcat-7.0.52.tar.gz
 RUN ln -s /opt/apache-tomcat-7.0.52 /opt/tomcat7
 
+RUN mkdir -p /cloudezz/tomcat7
+
 RUN echo "JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51" >> /etc/environment
 RUN echo "CATALINA_BASE=opt/apache-tomcat-7.0.52" >> /etc/environment
 RUN echo "CATALINA_HOME=opt/apache-tomcat-7.0.52" >> /etc/environment
@@ -20,8 +22,7 @@ ENV TOMCAT_HOME /opt/apache-tomcat-7.0.52
 EXPOSE 8080
 
 # all the data in these folders will be available after restart of container , it will be stored in host docker m/c
-VOLUME /opt/tomcat7/webapps
-VOLUME /opt/tomcat7/logs
+VOLUME ["/cloudezz/tomcat7/webapps-override", "/cloudezz/tomcat7/logs-override"]
 
 
 ADD setenv.sh /opt/apache-tomcat-7.0.52/bin/setenv.sh
