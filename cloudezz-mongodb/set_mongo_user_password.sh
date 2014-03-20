@@ -7,7 +7,7 @@ echo "MongoDB password already set!"
 exit 0
 fi
 
-/usr/bin/mongod --smallfiles &  >/dev/null 2>/dev/null
+/usr/bin/mongod --smallfiles & 
 sleep 3
 USER=${MONGODB_USER:-"admin"}
 PASS=${MONGODB_PASSWD:-$(pwgen -s 12 1)}
