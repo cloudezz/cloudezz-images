@@ -11,8 +11,6 @@ cd /opt/build-pack/cloudezz-node-build-pack-master && ant
 fi
 
 
-#!/bin/sh
-
 #	way to stop and start supervisord
 
 #	# stop supervisord in daemon mode
