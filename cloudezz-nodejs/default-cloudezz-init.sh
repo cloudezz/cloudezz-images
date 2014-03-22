@@ -17,4 +17,4 @@ service supervisor stop
 unlink /var/run/supervisor.sock 2> /dev/null
 # start supervisord in non daemon mode as it has to keep the machine running else it will shutdown
 echo "Starting supervisord in foreground ..."
-supervisord -n -c /etc/supervisor.conf
+supervisord -n -c /etc/supervisor/supervisor.conf
