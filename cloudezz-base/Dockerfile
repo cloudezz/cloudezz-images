@@ -68,11 +68,6 @@ RUN mkdir -p /var/log/supervisor
 # create directory for child images to store configuration in
 RUN  mkdir -p /etc/supervisor/conf.d
 
-# add supervisor conf files that will start when supervisord starts
-ADD supervisor.conf /etc/supervisor.conf
-ADD supervisor.conf /etc/supervisor/supervisor.conf
-ADD supervisor.conf /etc/supervisor.conf
-
 ADD sshd.conf /etc/supervisor/conf.d/
 ADD rinetd.conf /etc/supervisor/conf.d/
 
