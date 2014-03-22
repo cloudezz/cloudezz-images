@@ -71,6 +71,8 @@ RUN  mkdir -p /etc/supervisor/conf.d
 # add supervisor conf files that will start when supervisord starts
 ADD supervisor.conf /etc/supervisor.conf
 ADD supervisor.conf /etc/supervisor/supervisor.conf
+ADD supervisor.conf /etc/supervisor.conf
+
 ADD sshd.conf /etc/supervisor/conf.d/
 ADD rinetd.conf /etc/supervisor/conf.d/
 
