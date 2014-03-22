@@ -21,8 +21,8 @@ git clone $GIT_URL /cloudezz/app >/dev/null
 fi
 
 # start supervisord in daemon mode
-mv -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor/supervisor.conf
-mv -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor.conf
+cp -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor/supervisor.conf
+cp -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor.conf
 service supervisor start
 
 
