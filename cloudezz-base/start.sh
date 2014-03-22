@@ -21,8 +21,9 @@ git clone $GIT_URL /cloudezz/app >/dev/null
 fi
 
 # start supervisord in daemon mode
-cp -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor/supervisor.conf
-cp -f /opt/cloudezz-config/supervisorD.conf /etc/supervisor.conf
+# fix based on http://stackoverflow.com/questions/14479894/stopping-supervisord-shut-down
+unlink /var/run/supervisor.sock 2> /dev/null
+unlink /tmp/supervisor.sock 2> /dev/null
 service supervisor start
 
 
