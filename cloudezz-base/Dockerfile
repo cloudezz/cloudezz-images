@@ -80,6 +80,10 @@ ADD rinetd.conf /etc/supervisor/conf.d/
 RUN mkdir -p /cloudezz
 
 RUN mkdir -p /opt/cloudezz-config
+
+ADD supervisorD.conf /opt/cloudezz-config/supervisorD.conf
+ADD supervisorND.conf /opt/cloudezz-config/supervisorND.conf
+
 ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
 

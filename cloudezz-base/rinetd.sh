@@ -8,7 +8,7 @@ service rinetd stop
 IFS=',' read -a array <<< "$TCP_FORWARD"
 
 # empty the conf file before adding the mapping info
-echo clearing old contnent in rinetd.conf before adding mapping info..
+echo clearing old content in rinetd.conf before adding mapping info..
 echo "" > /etc/rinetd.conf
 
 for element in "${array[@]}"
