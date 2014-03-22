@@ -68,6 +68,9 @@ RUN mkdir -p /var/log/supervisor
 # create directory for child images to store configuration in
 RUN  mkdir -p /etc/supervisor/conf.d
 
+# add supervisor conf files that will start when supervisord starts
+ADD supervisor.conf /etc/supervisor.conf
+ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD sshd.conf /etc/supervisor/conf.d/
 ADD rinetd.conf /etc/supervisor/conf.d/
 
@@ -75,10 +78,6 @@ ADD rinetd.conf /etc/supervisor/conf.d/
 RUN mkdir -p /cloudezz
 
 RUN mkdir -p /opt/cloudezz-config
-
-ADD supervisorD.conf /opt/cloudezz-config/supervisorD.conf
-ADD supervisorND.conf /opt/cloudezz-config/supervisorND.conf
-
 ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
 
