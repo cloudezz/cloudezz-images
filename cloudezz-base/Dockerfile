@@ -57,7 +57,14 @@ EXPOSE 4022
 # Install some packages we need
 RUN apt-get install -y rinetd
 RUN apt-get install -y joe
-RUN apt-get install -y git-core
+RUN apt-get install -y git
+RUN apt-get install -y unzip
+
+# Install serf - http://www.serfdom.io/ v0.5.0
+RUN wget https://dl.bintray.com/mitchellh/serf/0.5.0_linux_amd64.zip
+RUN unzip serf.zip
+RUN rm serf.zip
+RUN mv serf /usr/bin/
 
 
 # install supervisor (which has no package on 12.04) to manage our processes
