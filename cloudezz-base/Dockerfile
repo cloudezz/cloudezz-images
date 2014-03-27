@@ -66,6 +66,8 @@ RUN unzip serf.zip
 RUN rm serf.zip
 RUN mv serf /usr/bin/
 
+# 'serf agent listening port' 
+EXPOSE 7946
 
 # install supervisor (which has no package on 12.04) to manage our processes
 # the supervisor config file is more likely to change and is therefore added as a later step
@@ -78,8 +80,9 @@ RUN  mkdir -p /etc/supervisor/conf.d
 # add supervisor conf files that will start when supervisord starts
 ADD supervisor.conf /etc/supervisor.conf
 ADD supervisor.conf /etc/supervisor/supervisor.conf
-ADD sshd.conf /etc/supervisor/conf.d/
-ADD rinetd.conf /etc/supervisor/conf.d/
+ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
+ADD rinetd.conf /etc/supervisor/conf.d/rinetd.conf
+ADD serf.conf /etc/supervisor/conf.d/serf.conf
 
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
@@ -87,6 +90,10 @@ RUN mkdir -p /cloudezz
 RUN mkdir -p /opt/cloudezz-config
 ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
+
+ADD start-serf.sh /opt/cloudezz-config/start-serf.sh
+RUN chmod +x /opt/cloudezz-config/start-serf.sh
+
 
 ADD ssh-key-init.sh /opt/cloudezz-config/ssh-key-init.sh
 RUN chmod +x /opt/cloudezz-config/ssh-key-init.sh
