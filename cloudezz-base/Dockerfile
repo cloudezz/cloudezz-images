@@ -86,10 +86,8 @@ ADD serf.conf /etc/supervisor/conf.d/serf.conf
 
 
 #Install PIP
-RUN mkdir -p /tmp/cloudezz/pip
-RUN wget -P /tmp/cloudezz/pip/ http://python-distribute.org/distribute_setup.py
-RUN sudo python /tmp/cloudezz/pip/distribute_setup.py
-RUN sudo easy_install pip
+RUN apt-get install -y python python-dev python-setuptools
+RUN easy_install pip
 
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
