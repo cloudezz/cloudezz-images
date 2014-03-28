@@ -88,7 +88,10 @@ ADD serf.conf /etc/supervisor/conf.d/serf.conf
 #Install PIP
 RUN apt-get install -y python python-dev python-setuptools
 RUN easy_install pip
+#Install fabric
+RUN pip install requests
 RUN pip install fabric
+
 
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
