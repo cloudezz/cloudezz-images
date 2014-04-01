@@ -100,6 +100,8 @@ RUN mkdir -p /opt/cloudezz-config
 ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
 
+ADD serfjoin.py /opt/cloudezz-config/serfjoin.py
+
 ADD start-serf.sh /opt/cloudezz-config/start-serf.sh
 RUN chmod +x /opt/cloudezz-config/start-serf.sh
 
