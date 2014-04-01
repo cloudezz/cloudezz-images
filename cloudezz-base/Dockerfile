@@ -92,6 +92,9 @@ RUN easy_install pip
 RUN pip install requests
 RUN pip install fabric
 
+#Install HAProxy
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y haproxy
+
 
 # NOTE: Create base folder
 RUN mkdir -p /cloudezz
@@ -101,6 +104,14 @@ ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
 
 ADD serfjoin.py /opt/cloudezz-config/serfjoin.py
+ADD join.sh /opt/cloudezz-config/join.sh
+ADD leave.sh /opt/cloudezz-config/leave.sh
+ADD haproxy.conf /opt/cloudezz-config/haproxy.conf
+
+RUN chmod +x /opt/cloudezz-config/serfjoin.py
+RUN chmod +x /opt/cloudezz-config/join.sh
+RUN chmod +x /opt/cloudezz-config/leave.sh
+
 
 ADD start-serf.sh /opt/cloudezz-config/start-serf.sh
 RUN chmod +x /opt/cloudezz-config/start-serf.sh
