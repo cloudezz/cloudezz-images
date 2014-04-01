@@ -1,14 +1,20 @@
 #!/bin/bash
 
-if [ "x${SERF_SELF_ROLE}" != "xlb" ]; then
-    echo "Not an lb. Ignoring member join."
+touch /opt/cloudezz-config/join_output.txt
+
+echo ${SERF_TAG_${IS_SERVICE}} >> join_output.txt
+
+if [ "x${SERF_TAG_${IS_SERVICE}}" != "true" ]; then
+    echo "Not an lb. Ignoring member join." >> join_output.txt
     exit 0
 fi
+
+touch /opt/cloudezz-config/join_output.txt
 
 rm /tmp/frontend.cfg
 rm /tmp/backend.cfg
 
-serf members -role=web -status=alive | while read host ip status tags; do
+serf members -tag is_service=true -status=alive | while read host ip status tags; do
     if [[ -z $tags ]]; then exit 0; fi
 
     declare -A hash
