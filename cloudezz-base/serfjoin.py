@@ -23,6 +23,8 @@ def main ():
                                "port" : os.environ['DEFAULT_PORT_TO_EXPOSE'], "ip":os.environ['HOST_IP']});
             if(r.status_code == 200):
                 leader = r.json();
+                print "Created Leader";
+                print leader;
                 
                 
                           
