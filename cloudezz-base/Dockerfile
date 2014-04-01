@@ -107,6 +107,7 @@ ADD serfjoin.py /opt/cloudezz-config/serfjoin.py
 ADD join.sh /opt/cloudezz-config/join.sh
 ADD leave.sh /opt/cloudezz-config/leave.sh
 ADD haproxy.conf /opt/cloudezz-config/haproxy.conf
+ADD haproxy.cfg.base /opt/cloudezz-config/haproxy.cfg.base
 
 RUN chmod +x /opt/cloudezz-config/serfjoin.py
 RUN chmod +x /opt/cloudezz-config/join.sh
