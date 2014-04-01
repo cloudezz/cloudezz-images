@@ -83,7 +83,7 @@ ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
 ADD rinetd.conf /etc/supervisor/conf.d/rinetd.conf
 ADD serf.conf /etc/supervisor/conf.d/serf.conf
-
+ADD haproxy.conf /etc/supervisor/conf.d/haproxy.conf
 
 #Install PIP
 RUN apt-get install -y python python-dev python-setuptools
@@ -106,7 +106,6 @@ RUN chmod +x /opt/cloudezz-config/rinetd.sh
 ADD serfjoin.py /opt/cloudezz-config/serfjoin.py
 ADD join.sh /opt/cloudezz-config/join.sh
 ADD leave.sh /opt/cloudezz-config/leave.sh
-ADD haproxy.conf /opt/cloudezz-config/haproxy.conf
 ADD haproxy.cfg.base /opt/cloudezz-config/haproxy.cfg.base
 
 RUN chmod +x /opt/cloudezz-config/serfjoin.py
