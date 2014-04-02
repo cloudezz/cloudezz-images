@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
 source /etc/environment
 touch /opt/cloudezz-config/serf_output.txt
+
 echo $IS_SERVICE >> serf_output.txt
 
 # start serf with a node name, role and other values to start and join a cluster
