@@ -20,6 +20,10 @@ rm -r /cloudezz/app
 git clone $GIT_URL /cloudezz/app >/dev/null
 fi
 
+#write environment variables
+
+env | grep _ >> /etc/environment
+ 
 # start supervisord in daemon mode
 # fix based on http://stackoverflow.com/questions/14479894/stopping-supervisord-shut-down
 unlink /var/run/supervisor.sock 2> /dev/null
