@@ -6,7 +6,7 @@ echo ${SERF_TAG_${IS_SERVICE}} >> join_output.txt
 
 echo ${SERF_TAG_IS_SERVICE} >> join_output.txt
 
-if [ "x${SERF_TAG_IS_SERVICE}" != "true" ]; then
+if [ "${SERF_TAG_IS_SERVICE}" != "true" ]; then
     echo "Not an lb. Ignoring member join." >> join_output.txt
     exit 0
 fi
