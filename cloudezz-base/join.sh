@@ -19,7 +19,7 @@ rm /tmp/backend.cfg
 
 serf members -tag is_service=true -status=alive | while read host ip status tags; do
     if [[ -z $tags ]]; then exit 0; fi
-
+	echo "Inside While Loop" >> join_output.txt
     declare -A hash
     IFS=',' read -a array <<< "$tags"
     for i in "${array[@]}"; do IFS="=" read k v <<< "$i"; hash[$k]=$v; done
