@@ -4,12 +4,15 @@ touch /opt/cloudezz-config/join_output.txt
 
 echo ${SERF_TAG_${IS_SERVICE}} >> join_output.txt
 
-if [ "x${SERF_TAG_${IS_SERVICE}}" != "true" ]; then
+echo ${SERF_TAG_IS_SERVICE} >> join_output.txt
+
+if [ "x${SERF_TAG_IS_SERVICE}" != "true" ]; then
     echo "Not an lb. Ignoring member join." >> join_output.txt
     exit 0
 fi
 
-touch /opt/cloudezz-config/join_output.txt
+
+echo "Member Joining to LB" >> join_output.txt
 
 rm /tmp/frontend.cfg
 rm /tmp/backend.cfg
