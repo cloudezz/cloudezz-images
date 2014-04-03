@@ -8,7 +8,7 @@ from random import randrange
 
 # from fabric.api import run, local, cd, env, roles, execute
 
-tmp_filename='listen.cfg'
+tmp_filename='/tmp/listen.cfg'
 
 def file_len(filename, lookup):
     line_offset = []
@@ -22,9 +22,9 @@ def file_len(filename, lookup):
                 return num, line_offset[num-1]
     return -1,-1
             
-def main(json_inp):
-#     serf_members_out = local('serf members -tag is_service=true -status=alive -format=json');
-    serf_members_json = json.loads(json_inp);
+def main():
+    serf_members_out = local('serf members -tag is_service=true -status=alive -format=json');
+    serf_members_json = json.loads(serf_members_out);
     members = serf_members_json['members'];
     for member in members:
         is_service = member['tags']['is_service']
@@ -72,8 +72,11 @@ def main(json_inp):
                      f.close();
 
 # json1 = '{"members": [     {      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:45954",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    }  ]}';  
-json1 = '{"members": [   {      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:45954",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    },  {      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:49154",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    } ,    {      "name": "d344680ad46b",      "addr": "172.17.0.3:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:45098",        "expose_default_port": "",        "host_ip": "10.1.1.1",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "failed",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    },{      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "100:900,200:901,300:902",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "rabbitmq",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    } ]}';  
+# json1 = '{"members": [   {      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:45954",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    },  {      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:49154",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    } ,    {      "name": "d344680ad46b",      "addr": "172.17.0.3:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "3306:45098",        "expose_default_port": "",        "host_ip": "10.1.1.1",        "is_service": "false",        "role": "mysql",        "serf_host_port": ""      },      "status": "failed",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    },{      "name": "db4c20f0ac53",      "addr": "172.17.0.2:7946",      "port": 7946,      "tags": {        "cluster_id": "",        "expose_default_host_port": "100:900,200:901,300:902",        "expose_default_port": "",        "host_ip": "10.0.2.2",        "is_service": "false",        "role": "rabbitmq",        "serf_host_port": ""      },      "status": "alive",      "protocol": {        "max": 4,        "min": 2,        "version": 4      }    } ]}';  
 
-if os.path.isfile(tmp_filename):
-    os.remove(tmp_filename)
-main(json1);
+# if os.path.isfile(tmp_filename):
+#     os.remove(tmp_filename)
+# main(json1);
+
+if __name__ =="__main__":
+    main();  
