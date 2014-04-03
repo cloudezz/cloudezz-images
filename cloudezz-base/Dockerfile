@@ -104,10 +104,12 @@ ADD rinetd.sh /opt/cloudezz-config/rinetd.sh
 RUN chmod +x /opt/cloudezz-config/rinetd.sh
 
 ADD serfjoin.py /opt/cloudezz-config/serfjoin.py
+ADD self_haproxy.py /opt/cloudezz-config/self_haproxy.py
 ADD join.sh /opt/cloudezz-config/join.sh
 ADD leave.sh /opt/cloudezz-config/leave.sh
 ADD haproxy.cfg.base /opt/cloudezz-config/haproxy.cfg.base
 
+RUN chmod +x /opt/cloudezz-config/self_haproxy.py
 RUN chmod +x /opt/cloudezz-config/serfjoin.py
 RUN chmod +x /opt/cloudezz-config/join.sh
 RUN chmod +x /opt/cloudezz-config/leave.sh
