@@ -5,7 +5,7 @@ import os;
 import linecache
 
 from random import randrange
-# from fabric.api import run, local, cd, env, roles, execute
+from fabric.api import run, local, cd, env, roles, execute
 
 tmp_filename='/tmp/listen.cfg'
 tmp_tmp='/tmp/listen_tmp.cfg'
