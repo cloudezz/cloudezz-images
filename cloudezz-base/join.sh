@@ -20,9 +20,3 @@ exec python serf_haproxy.py > /dev/null 2>&1 &
 wait %2
 
 echo "Python Execution End" >> join_output.txt
-
-cat /opt/cloudezz-config/haproxy.cfg.base /tmp/listen.cfg > /opt/cloudezz-config/haproxy.cfg
-
-echo "Copied HAProxy files" >> join_output.txt
-
-supervisorctl restart haproxy
