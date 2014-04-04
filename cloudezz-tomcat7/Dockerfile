@@ -3,7 +3,7 @@ FROM cloudezz/java7
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
 # setting up tomcat7
-RUN wget http://mirrors.advancedhosters.com/apache/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz
+RUN wget http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz
 RUN tar xvfvz apache-tomcat-7.0.52.tar.gz -C /opt
 RUN rm -f apache-tomcat-7.0.52.tar.gz
 RUN ln -s /opt/apache-tomcat-7.0.52 /opt/tomcat7
