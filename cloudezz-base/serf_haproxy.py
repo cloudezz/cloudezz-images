@@ -81,7 +81,13 @@ def main():
     for member in members:
         write_haproxy_tmpfile(member)
     #copy the original base file and the listen file to haproxy cfg file and then restart haproxy
-    local('cat /opt/cloudezz-config/haproxy.cfg.base /tmp/listen.cfg > /opt/cloudezz-config/haproxy.cfg', capture=True);
+    local('cat /opt/cloudezz-config/haproxy.cfg.base > /opt/cloudezz-config/haproxy.cfg', capture=True);
+    local('echo >> /opt/cloudezz-config/haproxy.cfg', capture=True)
+    local('echo >> /opt/cloudezz-config/haproxy.cfg', capture=True)
+    local('cat /tmp/listen.cfg >> /opt/cloudezz-config/haproxy.cfg', capture=True);
+    local('echo >> /opt/cloudezz-config/haproxy.cfg', capture=True)
+    local('echo >> /opt/cloudezz-config/haproxy.cfg', capture=True)
+    
     local('supervisorctl restart haproxy', capture=True );
 
 
