@@ -24,7 +24,7 @@ def file_len(file,lookup):
     return -1,-1
 
 def main():
-    serf_members_out = local('serf members -tag is_service=true -status=alive -format=json');
+    serf_members_out = local('serf members -tag is_service=true -status=alive -format=json', capture=True);
     serf_members_json = json.loads(serf_members_out);
     members = serf_members_json['members'];
     for member in members:
