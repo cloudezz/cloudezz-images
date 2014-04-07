@@ -59,10 +59,8 @@ RUN rm serf.zip
 RUN mv serf /usr/bin/
 
 # NOTE: expose ssh to connect ,'shell in a box' web access port  ,'serf agent listening port' 
-EXPOSE 22  4022 7946
+EXPOSE 22 4022 7946
 
-
-# install supervisor (which has no package on 12.04) to manage our processes
 # the supervisor config file is more likely to change and is therefore added as a later step
 RUN mkdir -p /var/log/supervisor
 # create directory for child images to store configuration in
