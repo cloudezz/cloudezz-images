@@ -78,6 +78,10 @@ def main():
     serf_members_out = local('serf members -tag is_service=true -status=alive -format=json', capture=True);
     serf_members_json = json.loads(serf_members_out);
     members = serf_members_json['members'];
+    if not members:
+        local('rm /opt/cloudezz-config/haproxy.cfg', capture=True)
+        local('supervisorctl stop haproxy', capture=True );
+        return;
     for member in members:
         write_haproxy_tmpfile(member)
     #copy the original base file and the listen file to haproxy cfg file and then restart haproxy
