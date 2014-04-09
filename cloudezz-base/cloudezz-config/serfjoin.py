@@ -7,7 +7,7 @@ from fabric.api import run, local, cd, env, roles, execute
 
 def joinSerf(leader):
     #HOW DO WE GET THE IP TO JOIN
-    local('serf join ' + leader.ip+':'+l)
+    local('serf join ' + leader.ip+':'+leader.port)
 
 def main ():
     base_url = os.environ['HOUSTON_PROTOCOL']+"://"+os.environ['HOUSTON_HOST_IP']+":"+os.environ['HOUSTON_PORT'];

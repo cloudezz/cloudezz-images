@@ -1,11 +1,15 @@
-if [ "x${SERF_SELF_ROLE}" != "xlb" ]; then
-    echo "Not an lb. Ignoring member leave"
-    exit 0
-fi
 
-while read line; do
-    NAME=`echo $line | awk '{print $1 }'`
-    sed -i'' "/${NAME} /d" /opt/cloudezz-config/haproxy.cfg
-done
+touch /opt/cloudezz-config/leave_output.txt
 
-supervisorctl restart haproxy
+echo ${SERF_TAG_IS_SERVICE} >> leave_output.txt
+
+echo "Member Joining to LB" >> leave_output.txt
+
+rm /tmp/listen.cfg
+echo "Python Execution Begin" >> leave_output.txt
+
+exec python serf_haproxy.py > /dev/null 2>&1 &
+
+wait %2
+
+echo "Python Execution End" >> leave_output.txt
