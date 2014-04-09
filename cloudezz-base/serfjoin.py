@@ -10,7 +10,9 @@ def joinSerf(leader):
     local('serf join ' + leader.ip+':'+l)
 
 def main ():
-    r = requests.get('http://10.0.2.2:8090/app/rest/clusterconfigs');
+    base_url = os.environ['HOUSTON_PROTOCOL']+"://"+os.environ['HOUSTON_HOST_IP']+":"+os.environ['HOUSTON_PORT'];
+    
+    r = requests.get(base_url+'/app/rest/clusterconfigs');
     if(r.status_code == 200):
         json = r.json();
         print json;
@@ -18,7 +20,7 @@ def main ():
             leader = json[0];
             joinSerf(leader);
         else:
-            r = requests.post('http://10.0.2.2:8090/app/rest/clusterconfigs', 
+            r = requests.post(base_url+'http://10.0.2.2:8090/app/rest/clusterconfigs', 
                               {"clusterKey": os.environ['SERF_CLUSTER_KEY'], "nodeName" : os.environ['SERF_NODE_NAME'],
                                "port" : os.environ['DEFAULT_PORT_TO_EXPOSE'], "ip":os.environ['HOST_IP']});
             if(r.status_code == 200):
