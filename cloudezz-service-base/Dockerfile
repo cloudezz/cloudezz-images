@@ -25,7 +25,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 	
 #  Install some packages we need and add sshd service and add the sshkey 
-RUN apt-get install -y openssh-server joe git unzip fail2ban supervisor python python-dev python-setuptools
+RUN apt-get install -f -y openssh-server joe git unzip fail2ban supervisor python python-dev python-setuptools
 
 RUN mkdir /var/run/sshd
 
