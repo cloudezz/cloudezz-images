@@ -17,8 +17,7 @@ RUN mkdir -p /opt/cloudezz-config
 ADD cloudezz-config /opt/cloudezz-config
 RUN chmod +x -R /opt/cloudezz-config/
 
-#  Install python
-RUN apt-get install -y python python-dev python-setuptools
+
 
 # make sure the package repository is up to date and update ubuntu
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
@@ -75,6 +74,8 @@ ADD supervisor/supervisor.conf /etc/supervisor.conf
 ADD supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 ADD supervisor/conf.d /etc/supervisor/conf.d
 
+#  Install python
+RUN apt-get install -y python python-dev python-setuptools
 
 #Install PIP
 RUN easy_install pip
