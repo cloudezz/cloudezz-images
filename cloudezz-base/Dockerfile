@@ -75,11 +75,12 @@ ADD supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 ADD supervisor/conf.d /etc/supervisor/conf.d
 
 
-RUN apt-get install -y python-dev python-setuptools easy_install fabric
+RUN apt-get install -y python-dev python-setuptools easy_install 
 #Install PIP
 RUN easy_install pip
-#Install py request
+#Install fabric
 RUN pip install requests 
+RUN pip install fabric
 
 
 CMD cd /opt/cloudezz-config && ./start.sh
