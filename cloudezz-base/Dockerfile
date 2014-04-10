@@ -74,8 +74,6 @@ ADD supervisor/supervisor.conf /etc/supervisor.conf
 ADD supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 ADD supervisor/conf.d /etc/supervisor/conf.d
 
-#  Install python
-RUN apt-get install -y python python-dev python-setuptools
 
 #Install PIP
 RUN easy_install pip
