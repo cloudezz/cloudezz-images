@@ -26,7 +26,7 @@ RUN apt-get update
 
 	
 #  Install some packages we need and add sshd service and add the sshkey 
-RUN apt-get install -y openssh-server rinetd joe git unzip fail2ban supervisor python python-dev python-setuptools haproxy
+RUN apt-get install -f -y openssh-server rinetd joe git unzip fail2ban supervisor python python-dev python-setuptools haproxy
 
 RUN mkdir /var/run/sshd
 RUN mkdir /root/.ssh
