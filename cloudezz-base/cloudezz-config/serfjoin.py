@@ -20,7 +20,7 @@ def main ():
             leader = json[0];
             joinSerf(leader);
         else:
-            r = requests.post(base_url+'http://10.0.2.2:8090/app/rest/clusterconfigs', 
+            r = requests.post(base_url+'/app/rest/clusterconfigs', 
                               {"clusterKey": os.environ['SERF_CLUSTER_KEY'], "nodeName" : os.environ['SERF_NODE_NAME'],
                                "port" : os.environ['DEFAULT_PORT_TO_EXPOSE'], "ip":os.environ['HOST_IP']});
             if(r.status_code == 200):
