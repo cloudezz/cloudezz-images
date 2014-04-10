@@ -21,8 +21,9 @@ RUN chmod +x -R /opt/cloudezz-config/
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
 
-RUN apt-get update
 RUN apt-get -y upgrade
+RUN apt-get update
+
 	
 #  Install some packages we need and add sshd service and add the sshkey 
 RUN apt-get install -y openssh-server rinetd joe git unzip fail2ban supervisor python python-dev python-setuptools haproxy
