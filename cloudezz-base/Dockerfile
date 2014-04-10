@@ -28,7 +28,7 @@ RUN apt-get update
 
 	
 #  Install some packages we need and add sshd service and add the sshkey 
-RUN apt-get install -y openssh-server rinetd joe git unzip fail2ban supervisor haproxy
+RUN apt-get install -y python-setuptools openssh-server rinetd joe git unzip fail2ban supervisor haproxy
 
 RUN mkdir /var/run/sshd
 RUN mkdir /root/.ssh
@@ -74,8 +74,6 @@ ADD supervisor/supervisor.conf /etc/supervisor.conf
 ADD supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 ADD supervisor/conf.d /etc/supervisor/conf.d
 
-
-RUN apt-get install -y python-setuptools 
 #Install PIP
 RUN easy_install pip
 #Install fabric
