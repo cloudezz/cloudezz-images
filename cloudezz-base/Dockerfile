@@ -75,7 +75,7 @@ ADD supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 ADD supervisor/conf.d /etc/supervisor/conf.d
 
 
-RUN apt-get install python-setuptools
+RUN apt-get install -y python-setuptools
 #Install PIP
 RUN easy_install pip
 #Install fabric
