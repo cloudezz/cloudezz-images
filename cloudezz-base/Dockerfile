@@ -76,7 +76,7 @@ ADD supervisor/conf.d /etc/supervisor/conf.d
 
 
 #Install PIP
-RUN easy_install pip
+RUN apt-get install -y python-pip
 #Install fabric
 RUN pip install requests
 RUN pip install fabric
