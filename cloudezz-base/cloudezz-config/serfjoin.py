@@ -6,7 +6,7 @@ from fabric.api import run, local, cd, env, roles, execute
 
 
 def joinSerf(leader):
-    #HOW DO WE GET THE IP TO JOIN
+    print "Joining the cluster"
     local('serf join ' + leader.ip+':'+leader.port)
 
 def main ():
