@@ -78,7 +78,7 @@ ADD supervisor/conf.d /etc/supervisor/conf.d
 RUN easy_install pip
 #Install fabric
 RUN pip install requests 
-RUN pip install fabric
+RUN apt-get install -y fabric
 
 
 CMD cd /opt/cloudezz-config && ./start.sh
