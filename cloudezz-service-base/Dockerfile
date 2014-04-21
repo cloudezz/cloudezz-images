@@ -21,11 +21,12 @@ RUN chmod +x -R /opt/cloudezz-config/
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
 
-RUN apt-get update
 RUN apt-get -y upgrade
+RUN apt-get update
+
 	
 #  Install some packages we need and add sshd service and add the sshkey 
-RUN apt-get install -f -y openssh-server joe git unzip fail2ban supervisor python python-dev python-setuptools
+RUN apt-get install -y python-setuptools openssh-server joe git unzip fail2ban supervisor 
 
 RUN mkdir /var/run/sshd
 
@@ -76,8 +77,8 @@ ADD supervisor/conf.d /etc/supervisor/conf.d
 #Install PIP
 RUN easy_install pip
 #Install fabric
-RUN pip install requests
-RUN pip install fabric
+RUN pip install requests 
+RUN apt-get install -y fabric
 
 
 CMD cd /opt/cloudezz-config && ./start.sh
