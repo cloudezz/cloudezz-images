@@ -15,22 +15,23 @@ RUN /bin/chmod 755 /usr/sbin/policy-rc.d
 ENV DEBIAN_FRONTEND noninteractive
 
 
-ADD rabbitmq-signing-key-public.asc /opt/rabbitmq-signing-key-public.asc
-RUN apt-key add /opt/rabbitmq-signing-key-public.asc
+ADD rabbitmq-signing-key-public.asc /opt/cloudezz-config/rabbitmq-signing-key-public.asc
+RUN apt-key add /opt/cloudezz-config/rabbitmq-signing-key-public.asc
 
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list
 RUN apt-get -qq update > /dev/null
 RUN apt-get -qq -y install rabbitmq-server > /dev/null
 
-ADD rabbitmq_setup.sh /opt/rabbitmq_setup.sh
-RUN chmod +x /opt/rabbitmq_setup.sh
+ADD rabbitmq_setup.sh /opt/cloudezz-config/rabbitmq_setup.sh
+RUN chmod +x /opt/cloudezz-config/rabbitmq_setup.sh
 
 
 VOLUME ["/var/lib/rabbitmq/mnesia"]
 
 EXPOSE 5672 15672 4369
 
-CMD cd /opt && ./rabbitmq_setup.sh && ./start.sh
+CMD cd /opt/cloudezz-config && ./rabbitmq_setup.sh && ./start.sh
+
 
 
 
