@@ -33,7 +33,7 @@ VOLUME ["/etc/haproxy"]
 
 EXPOSE 80 443 9000
 
-CMD cd /opt && ./start.sh
+CMD cd /opt/cloudezz-config && ./start.sh
 
 
 
