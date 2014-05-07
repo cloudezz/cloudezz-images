@@ -15,10 +15,10 @@ VOLUME ["/var/lib/redis"]
 
 ADD redis.conf /etc/supervisor/conf.d/
 
-ADD redis_conf_setup.sh /opt/redis_conf_setup.sh
-RUN chmod +x /opt/redis_conf_setup.sh
+ADD redis_conf_setup.sh /opt/cloudezz-config/redis_conf_setup.sh
+RUN chmod +x /opt/cloudezz-config/redis_conf_setup.sh
 
-CMD cd /opt && ./redis_conf_setup.sh && ./start.sh
+CMD cd /opt/cloudezz-config && ./redis_conf_setup.sh && ./start.sh
 
 
 
